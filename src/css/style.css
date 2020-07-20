@@ -1,0 +1,82 @@
+body,ul {
+  margin:0;
+  padding: 0;
+}
+.visability-hidden {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  height: 1px;
+  width: 1px;
+}
+
+.card-variants__item {
+  width: 39px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-size: 39px;
+  background-position: center;
+  display: inline-block;
+}
+
+.visa-card {
+  background-image: url('../img/visa.svg');
+}
+
+.mastercard-card {
+  background-image: url('../img/mastercard.svg');
+}
+
+.mir-card {
+  background-image: url('../img/national-payment-system-mir.svg');
+}
+
+.american-express-card {
+  background-image: url('../img/american-express.svg');
+}
+
+.discover-card {
+  background-image: url('../img/Discover_Card_logo.svg');
+}
+
+.dinners-club-card {
+  background-image: url('../img/Diners_Club_Logo3.svg');
+}
+
+.jcb-card {
+  background-image: url('../img/jcb.svg');
+}
+
+.grayscale {
+ filter: grayscale(100%);
+}
+
+[data-id=cardNumber-submit] {
+  width: 128px;
+  border: none;
+  background-color: #5cb85c;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 800;
+  margin-left: 10px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.incorrect {
+  background-color: red;
+}
+
+.tooltip {
+  font-size: 12px;
+}
+
+.tooltip__valid {
+  color: #5cb85c;
+}
+
+.tooltip__invalid {
+  color: red;
+}
