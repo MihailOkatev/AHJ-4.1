@@ -1,12 +1,12 @@
-// eslint-disable-next-line import/no-cycle
 import { validateIt } from './validateIt';
-// eslint-disable-next-line import/no-cycle
-import { tootlipDisplay } from './tooltipDisplay';
+import { cardVendorDisplay } from './cardVendorDisplay';
+import { paymentSystemCheck } from './paymentSystemCheck';
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardWidget {
   constructor(parentEl) {
     this.parentEl = parentEl;
+    this.inputEl = document.querySelector(this.constructor.inputSelector);
   }
 
   static get markup() {
@@ -51,12 +51,40 @@ export class CardWidget {
 
   onSubmit(evt) {
     evt.preventDefault();
-    const inputEl = this.parentEl.querySelector(this.constructor.inputSelector);
-    if (validateIt()) {
-      inputEl.classList.add('valid');
+    if (validateIt(this.inputEl.value)) {
+      this.inputEl.classList.add('valid');
     } else {
-      inputEl.classList.add('invalid');
+      this.inputEl.classList.add('invalid');
     }
-    tootlipDisplay();
+    this.tooltipDisplay();
+  }
+
+  litenersInit() {
+    document.querySelector(this.constructor.inputSelector).addEventListener('keypress', (evt) => {
+      // eslint-disable-next-line max-len
+      if (!((evt.charCode > 47 && evt.charCode < 58) || (evt.charCode < 96 && evt.charCode > 105) || evt.charCode === 32 || evt.charCode === 189 || evt.charCode === 45)) {
+        evt.preventDefault();
+      }
+      if ((evt.charCode === 32 || evt.charCode === 189 || evt.charCode === 45) && document.querySelector(this.constructor.inputSelector).value === '') {
+        evt.preventDefault();
+      }
+    });
+    document.querySelector(this.constructor.inputSelector).addEventListener('input', () => {
+      // eslint-disable-next-line max-len
+      cardVendorDisplay(paymentSystemCheck(document.querySelector(this.constructor.inputSelector).value));
+    });
+  }
+
+  tooltipDisplay() {
+    const tooltip = document.createElement('span');
+    tooltip.classList.add('tooltip');
+    if (document.querySelector(this.constructor.inputSelector).classList.contains('valid')) {
+      tooltip.textContent = 'Вы ввели корректный номер карты';
+      tooltip.classList.add('tooltip__valid');
+    } else {
+      tooltip.textContent = 'Вы ввели некорректный номер карты';
+      tooltip.classList.add('tooltip__invalid');
+    }
+    this.parentEl.append(tooltip);
   }
 }

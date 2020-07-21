@@ -1,7 +1,6 @@
 import { CardWidget } from './CardWidget';
-import { listeners } from './listeners';
 
-export const submit = document.querySelector('[data-id=cardNumber-submit]');
+// eslint-disable-next-line import/prefer-default-export
 export const cardWidget = new CardWidget(document.querySelector('#container'));
 cardWidget.bindToDOM();
-listeners();
+cardWidget.litenersInit();
