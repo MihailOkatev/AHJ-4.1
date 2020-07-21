@@ -73,6 +73,11 @@ export class CardWidget {
       // eslint-disable-next-line max-len
       cardVendorDisplay(paymentSystemCheck(document.querySelector(this.constructor.inputSelector).value));
     });
+    document.querySelector(this.constructor.inputSelector).addEventListener('paste',() => {
+      // eslint-disable-next-line max-len
+      cardVendorDisplay(paymentSystemCheck(document.querySelector(this.constructor.inputSelector).value));
+
+    });
   }
 
   tooltipDisplay() {
