@@ -7,9 +7,9 @@ describe('CardNumber Widget', () => {
   const baseUrl = 'http://localhost:9000';
   beforeAll(async () => {
     browser = await puppetteer.launch({
-      headless: true, // show gui
-      slowMo: 100,
-      devtools: false, // show devTools
+      // headless: true, // show gui
+      // slowMo: 100,
+      // devtools: false, // show devTools
     });
     page = await browser.newPage();
   });
