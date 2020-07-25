@@ -9,7 +9,7 @@ describe('CardNumber Widget', () => {
     browser = await puppetteer.launch({
       headless: true, // show gui
       slowMo: 100,
-      devtools: true, // show devTools
+      devtools: false, // show devTools
     });
     page = await browser.newPage();
   });
