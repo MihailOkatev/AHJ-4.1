@@ -13,7 +13,6 @@
     "show:coverage": "live-server coverage/lcov-report",
     "preshow:dist": "npm run build",
     "show:dist": "live-server dist",
-    "runtest": "webpack-dev-server --config webpack.dev.js && npm run test"
   },
   "author": "coursar",
   "license": "MIT",
