@@ -51,10 +51,10 @@ export class CardWidget {
 
   onSubmit(evt) {
     evt.preventDefault();
-    if (validateIt(this.inputEl.value)) {
-      this.inputEl.classList.add('valid');
+    if (validateIt((document.querySelector(this.constructor.inputSelector).value))) {
+      document.querySelector(this.constructor.inputSelector).classList.add('valid');
     } else {
-      this.inputEl.classList.add('invalid');
+      document.querySelector(this.constructor.inputSelector).classList.add('invalid');
     }
     this.tooltipDisplay();
   }
