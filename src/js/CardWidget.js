@@ -51,6 +51,8 @@ export class CardWidget {
 
   onSubmit(evt) {
     evt.preventDefault();
+    // eslint-disable-next-line max-len
+    document.querySelector(this.constructor.inputSelector).classList.forEach((item) => document.querySelector(this.constructor.inputSelector).classList.remove(item));
     if (validateIt((document.querySelector(this.constructor.inputSelector).value))) {
       document.querySelector(this.constructor.inputSelector).classList.add('valid');
     } else {
@@ -82,6 +84,9 @@ export class CardWidget {
   tooltipDisplay() {
     const tooltip = document.createElement('span');
     tooltip.classList.add('tooltip');
+    if (document.querySelector('.tooltip') !== null) {
+      document.querySelector('.tooltip').remove();
+    }
     if (document.querySelector(this.constructor.inputSelector).classList.contains('valid')) {
       tooltip.textContent = 'Вы ввели корректный номер карты';
       tooltip.classList.add('tooltip__valid');
