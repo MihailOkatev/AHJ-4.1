@@ -12,8 +12,7 @@
     "preshow:coverage": "npm run coverage",
     "show:coverage": "live-server coverage/lcov-report",
     "preshow:dist": "npm run build",
-    "show:dist": "live-server dist",
-    "runalltests": "webpack --config webpack.prod.js && live-server --port=9000 dist & npm run test"
+    "show:dist": "live-server --port=9000 dist"
   },
   "author": "coursar",
   "license": "MIT",
