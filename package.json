@@ -13,7 +13,7 @@
     "show:coverage": "live-server coverage/lcov-report",
     "preshow:dist": "npm run build",
     "show:dist": "live-server dist",
-    "abracadabra": "live-server --port 9000 dist & npm run test"
+    "abracadabra": "live-server --port=9000 dist & npm run test"
   },
   "author": "coursar",
   "license": "MIT",
